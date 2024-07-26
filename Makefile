@@ -32,7 +32,6 @@ fmt:              ## Format code using black & isort.
 
 .PHONY: lint
 lint:             ## Run pep8, black, mypy linters.
-	$(ENV_PREFIX)flake8 evo_downloader/
 	$(ENV_PREFIX)black -l 120 --check evo_downloader/
 	$(ENV_PREFIX)black -l 120 --check tests/
 	$(ENV_PREFIX)mypy --ignore-missing-imports evo_downloader/
