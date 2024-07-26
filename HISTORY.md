@@ -2,12 +2,14 @@ Changelog
 =========
 
 
-0.1.2 (2021-08-14)
-------------------
-- Fix release, README and windows CI. [Bruno Rocha]
-- Release: version 0.1.0. [Bruno Rocha]
+(unreleased)
+------------
+- Update LICENSE. [Nguyễn Anh Bình]
+- - Fix bug linter. [Nguyễn Anh Bình]
+- - Fix bug linter. [Nguyễn Anh Bình]
+- - Fix bug linter. [Nguyễn Anh Bình]
+- - first release. [Nguyễn Anh Bình]
+- ✅ Ready to clone and code. [maycuatroi]
+- Initial commit. [Nguyễn Anh Bình]
 
 
-0.1.0 (2021-08-14)
-------------------
-- Add release command. [Bruno Rocha]
