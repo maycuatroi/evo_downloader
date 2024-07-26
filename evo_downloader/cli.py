@@ -1,28 +1,41 @@
-"""CLI interface for evo_downloader project.
-
-Be creative! do whatever you want!
-
-- Install click or typer and create a CLI app
-- Use builtin argparse
-- Start a web application
-- Import things from your .base module
-"""
+import click
+from evo_downloader.downloader import Downloader
 
 
-def main():  # pragma: no cover
+@click.group()
+def cli():
+    """CLI for evo_downloader."""
+    pass
+
+
+@click.command()
+@click.argument("file_urls", nargs=-1)
+@click.option("--folder", default="downloads", help="Folder to save downloaded files")
+@click.option("--num-threads", default=10, help="Number of threads for downloading")
+def download(file_urls, folder, num_threads):
     """
-    The main function executes on commands:
-    `python -m evo_downloader` and `$ evo_downloader `.
+    Download files from the given URLs.
 
-    This is your program's entry point.
-
-    You can change this function to do whatever you want.
-    Examples:
-        * Run a test suite
-        * Run a server
-        * Do some other stuff
-        * Run a command line application (Click, Typer, ArgParse)
-        * List all available tasks
-        * Run an application (Flask, FastAPI, Django, etc.)
+    Args:
+        file_urls (tuple): URLs of the files to download.
+        folder (str): Folder to save the downloaded files.
+        num_threads (int): Number of threads for downloading.
     """
-    print("This will do something")
+    if not file_urls:
+        click.echo("Please provide at least one file URL.")
+        return
+
+    try:
+        downloader = Downloader(num_threads=num_threads)
+        downloaded_files = downloader.download_files(file_urls, folder)
+
+        for file_path in downloaded_files:
+            click.echo(f"Downloaded: {file_path}")
+    except Exception as e:
+        click.echo(f"An error occurred during download: {e}")
+
+
+cli.add_command(download)
+
+if __name__ == "__main__":
+    cli()

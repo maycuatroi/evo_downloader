@@ -1,4 +1,5 @@
 """Python setup.py for evo_downloader package"""
+
 import io
 import os
 from setuptools import find_packages, setup
@@ -22,11 +23,7 @@ def read(*paths, **kwargs):
 
 
 def read_requirements(path):
-    return [
-        line.strip()
-        for line in read(path).split("\n")
-        if not line.startswith(('"', "#", "-", "git+"))
-    ]
+    return [line.strip() for line in read(path).split("\n") if not line.startswith(('"', "#", "-", "git+"))]
 
 
 setup(
@@ -39,8 +36,6 @@ setup(
     author="maycuatroi",
     packages=find_packages(exclude=["tests", ".github"]),
     install_requires=read_requirements("requirements.txt"),
-    entry_points={
-        "console_scripts": ["evo_downloader = evo_downloader.__main__:main"]
-    },
+    entry_points={"console_scripts": ["edownload = evo_downloader.__main__:main"]},
     extras_require={"test": read_requirements("requirements-test.txt")},
 )
