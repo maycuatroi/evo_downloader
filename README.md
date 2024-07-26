@@ -8,14 +8,14 @@ This module contains the main functionality for downloading files, including sup
 ## Install it from PyPI
 
 ```bash
-pip install evo_downloader
+pip install evo-download
 ```
 
 ## Usage
 
 ### As a Library
 
-You can use `evo_downloader` to download files programmatically.
+You can use `evo-download` to download files programmatically.
 
 ```python
 from evo_downloader.downloader import Downloader
