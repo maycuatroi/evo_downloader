@@ -2,3 +2,4 @@ requests
 rich
 click
 humanize
+types-requests

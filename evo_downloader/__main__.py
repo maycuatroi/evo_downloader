@@ -1,6 +1,6 @@
 """Entry point for evo_downloader."""
 
-from .cli import main  # pragma: no cover
+from .cli import cli  # pragma: no cover
 
 if __name__ == "__main__":  # pragma: no cover
-    main()
+    cli()  # pragma: no cover
