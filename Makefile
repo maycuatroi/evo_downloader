@@ -22,7 +22,11 @@ show:             ## Show the current environment.
 install:          ## Install the project in dev mode.
 	@if [ "$(USING_POETRY)" ]; then poetry install && exit; fi
 	@echo "Don't forget to run 'make virtualenv' if you got errors."
-	$(ENV_PREFIX)pip install -e .[test]
+	@if [ "$(TEST_FULL)" = "1" ]; then \
+		$(ENV_PREFIX)pip install -e .[test,full]; \
+	else \
+		$(ENV_PREFIX)pip install -e .[test]; \
+	fi
 
 .PHONY: fmt
 fmt:              ## Format code using black & isort.
@@ -41,6 +45,14 @@ test: lint        ## Run tests and generate coverage report.
 	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=evo_downloader -l --tb=short --maxfail=1 tests/
 	$(ENV_PREFIX)coverage xml
 	$(ENV_PREFIX)coverage html
+
+.PHONY: test-full
+test-full:        ## Run tests with full requirements.
+	TEST_FULL=1 $(MAKE) test
+
+.PHONY: test-lean
+test-lean:        ## Run tests with lean requirements.
+	TEST_FULL=0 $(MAKE) test
 
 .PHONY: watch
 watch:            ## Run tests on every change.
