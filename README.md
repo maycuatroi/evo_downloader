@@ -7,8 +7,16 @@ This module contains the main functionality for downloading files, including sup
 
 ## Install it from PyPI
 
+### Lean Version
+
 ```bash
 pip install evo-downloader
+```
+
+### Full Version with PyQt6
+
+```bash
+pip install evo-downloader[full]
 ```
 
 ## Usage
