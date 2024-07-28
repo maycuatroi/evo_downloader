@@ -2,6 +2,7 @@ import concurrent.futures
 import logging
 import os
 import time
+import uuid
 
 import humanize
 import requests
@@ -115,6 +116,7 @@ class Downloader:
         file_size = self.get_file_size(url, headers)
         chunk_size = file_size // self.num_threads
         supports_range = self.supports_range_requests(url, headers)
+        unique_id = uuid.uuid4()
 
         progress = Progress(
             "[progress.description]{task.description}",
@@ -143,7 +145,7 @@ class Downloader:
                             headers,
                             i * chunk_size,
                             ((i + 1) * chunk_size - 1 if i < self.num_threads - 1 else file_size - 1),
-                            os.path.join(temp_folder, f"part_{i}"),
+                            os.path.join(temp_folder, f"part_{unique_id}_{i}"),
                             progress,
                             task_id,
                         )
@@ -171,7 +173,7 @@ class Downloader:
         if supports_range:
             with open(output_file_path, "wb") as final_file:
                 for i in range(self.num_threads):
-                    temp_file_path = os.path.join(temp_folder, f"part_{i}")
+                    temp_file_path = os.path.join(temp_folder, f"part_{unique_id}_{i}")
                     with open(temp_file_path, "rb") as part_file:
                         final_file.write(part_file.read())
                     os.remove(temp_file_path)
