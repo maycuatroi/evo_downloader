@@ -8,7 +8,7 @@ This module contains the main functionality for downloading files, including sup
 ## Install it from PyPI
 
 ```bash
-pip install evo-download
+pip install evo-downloader
 ```
 
 ## Usage
