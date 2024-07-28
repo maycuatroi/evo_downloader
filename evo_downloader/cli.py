@@ -1,5 +1,6 @@
 import click
 from evo_downloader.downloader import Downloader
+from evo_downloader.gui import DownloaderGUI
 
 
 @click.group()
@@ -35,7 +36,22 @@ def download(file_urls, folder, num_threads):
         click.echo(f"An error occurred during download: {e}")
 
 
+@click.command()
+def gui():
+    """
+    Launch the GUI for evo_downloader.
+    """
+    import sys
+    from PyQt6.QtWidgets import QApplication
+
+    app = QApplication(sys.argv)
+    gui = DownloaderGUI()
+    gui.show()
+    sys.exit(app.exec())
+
+
 cli.add_command(download)
+cli.add_command(gui)
 
 if __name__ == "__main__":
     cli()

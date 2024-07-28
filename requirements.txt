@@ -3,3 +3,4 @@ rich
 click
 humanize
 types-requests
+pyqt6

@@ -61,6 +61,14 @@ $ evo_downloader download https://github.com/maycuatroi/evo_downloader/archive/r
 
 This example demonstrates how to use the `Downloader` class to download files programmatically.
 
+### GUI Usage
 
+You can also use `edownload` to launch the GUI.
+
+```bash
+$ edownload gui
+```
+
+The GUI allows you to input multiple download links and select the output folder. It also displays the download progress.
 
 _Evo Downloader developed with ❤️ by maycuatroi_
