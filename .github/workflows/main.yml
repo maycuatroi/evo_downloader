@@ -87,11 +87,6 @@ jobs:
       - name: Install Pip
         run: pip install --user --upgrade pip
       - name: Install project
-        run: |
-          if [ "${{ matrix.full }}" = "true" ]; then
-            make test-full
-          else
-            make test-lean
-          fi
+        run: pip install -e .[test]
       - name: run tests
         run: pytest -s -vvvv -l --tb=long tests
