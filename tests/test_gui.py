@@ -19,7 +19,9 @@ class TestDownloaderGUI(unittest.TestCase):
         self.assertEqual(self.gui.folder_input.text(), "/test/download_folder")
 
     def test_start_download(self):
-        self.gui.url_input.setPlainText("http://images.cocodataset.org/annotations/image_info_test2014.zip\nhttps://github.com/maycuatroi/evo_downloader/archive/refs/heads/main.zip")
+        self.gui.url_input.setPlainText(
+            "http://images.cocodataset.org/annotations/image_info_test2014.zip\nhttps://github.com/maycuatroi/evo_downloader/archive/refs/heads/main.zip"
+        )
         self.gui.folder_input.setText("/test/download_folder")
         self.gui.start_download()
         self.assertEqual(self.gui.progress_bar.value(), 0)  # Initial progress should be 0

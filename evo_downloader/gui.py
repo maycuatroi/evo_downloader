@@ -57,6 +57,8 @@ class DownloaderGUI(QWidget):
         folder_layout = QHBoxLayout()
         self.folder_label = QLabel("Output Folder:")
         self.folder_input = QLineEdit()
+        default_download_folder = os.path.expanduser("~/Downloads")
+        self.folder_input.setText(os.path.abspath(default_download_folder))
         self.folder_button = QPushButton("Browse")
         self.folder_button.clicked.connect(self.select_folder)
         folder_layout.addWidget(self.folder_label)
