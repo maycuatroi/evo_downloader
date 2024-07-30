@@ -44,6 +44,8 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+      - name: Install GUI
+        run: apt install libgl1-mesa-glx
       - name: Install project
         run: make install
       - name: Run tests
