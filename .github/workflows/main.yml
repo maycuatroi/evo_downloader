@@ -44,8 +44,6 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install GUI
-        run: sudo apt-get update && sudo apt install libgl1-mesa-dev
       - name: Install project
         run: make install
       - name: Run tests
@@ -72,6 +70,8 @@ jobs:
         run: make install
       - name: Run tests
         run: make test
+      - name: Run tests GUI
+        run: make testgui
 
   tests_win:
     needs: linter
@@ -92,3 +92,5 @@ jobs:
         run: pip install -e .[test]
       - name: run tests
         run: pytest -s -vvvv -l --tb=long tests
+      - name: Run tests GUI
+        run: make testgui

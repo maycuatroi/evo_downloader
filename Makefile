@@ -37,8 +37,14 @@ lint:             ## Run pep8, black, mypy linters.
 	$(ENV_PREFIX)mypy --ignore-missing-imports evo_downloader/
 
 .PHONY: test
-test: lint        ## Run tests and generate coverage report.
-	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=evo_downloader -l --tb=short --maxfail=1 tests/
+test:
+	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=evo_downloader -l --tb=short --maxfail=1 tests/test_libs/
+	$(ENV_PREFIX)coverage xml
+	$(ENV_PREFIX)coverage html
+
+.PHONY: testgui
+testgui:
+	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=evo_downloader -l --tb=short --maxfail=1 tests/test_gui/
 	$(ENV_PREFIX)coverage xml
 	$(ENV_PREFIX)coverage html
 
