@@ -79,4 +79,18 @@ $ edownload gui
 
 The GUI allows you to input multiple download links and select the output folder. It also displays the download progress.
 
+### Testing
+
+To run tests, you need to install the testing dependencies, including `pyqt6`.
+
+```bash
+pip install -r requirements-test.txt
+```
+
+Then, you can run the tests using `pytest`.
+
+```bash
+pytest
+```
+
 _Evo Downloader developed with ❤️ by maycuatroi_
