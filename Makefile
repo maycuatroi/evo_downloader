@@ -38,6 +38,7 @@ lint:             ## Run pep8, black, mypy linters.
 
 .PHONY: test
 test: lint        ## Run tests and generate coverage report.
+    $(ENV_PREFIX)apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=evo_downloader -l --tb=short --maxfail=1 tests/
 	$(ENV_PREFIX)coverage xml
 	$(ENV_PREFIX)coverage html
