@@ -1,8 +1,6 @@
-import sys
 import unittest
 
-from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QApplication
+from PyQt5.QtCore import Qt
 from evo_downloader.gui import DownloaderGUI
 
 

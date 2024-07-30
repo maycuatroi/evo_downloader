@@ -1,4 +1,5 @@
-from PyQt6.QtWidgets import (
+from PyQt5.QtCore import pyqtSignal
+from qtpy.QtWidgets import (
     QApplication,
     QWidget,
     QVBoxLayout,
@@ -10,7 +11,7 @@ from PyQt6.QtWidgets import (
     QProgressBar,
     QTextEdit,
 )
-from PyQt6.QtCore import Qt, QThread, pyqtSignal
+from qtpy.QtCore import QThread
 import sys
 import os
 from evo_downloader.downloader import Downloader

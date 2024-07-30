@@ -9,5 +9,5 @@ codecov
 mypy
 gitchangelog
 mkdocs
-pyqt6
+pyqt5
 pytest-qt
