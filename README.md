@@ -7,8 +7,16 @@ This module contains the main functionality for downloading files, including sup
 
 ## Install it from PyPI
 
+### Lean Version
+
 ```bash
 pip install evo-downloader
+```
+
+### Full Version with PyQt6
+
+```bash
+pip install evo-downloader[full]
 ```
 
 ## Usage
@@ -61,6 +69,28 @@ $ evo_downloader download https://github.com/maycuatroi/evo_downloader/archive/r
 
 This example demonstrates how to use the `Downloader` class to download files programmatically.
 
+### GUI Usage
 
+You can also use `edownload` to launch the GUI.
+
+```bash
+$ edownload gui
+```
+
+The GUI allows you to input multiple download links and select the output folder. It also displays the download progress.
+
+### Testing
+
+To run tests, you need to install the testing dependencies, including `pyqt6`.
+
+```bash
+pip install -r requirements-test.txt
+```
+
+Then, you can run the tests using `pytest`.
+
+```bash
+pytest
+```
 
 _Evo Downloader developed with ❤️ by maycuatroi_

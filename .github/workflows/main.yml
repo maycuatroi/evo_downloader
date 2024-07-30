@@ -70,6 +70,8 @@ jobs:
         run: make install
       - name: Run tests
         run: make test
+      - name: Run tests GUI
+        run: make testgui
 
   tests_win:
     needs: linter
@@ -85,8 +87,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Pip
-        run: pip install --user --upgrade pip
+        run: python.exe -m pip install --upgrade pip
       - name: Install project
         run: pip install -e .[test]
       - name: run tests
         run: pytest -s -vvvv -l --tb=long tests
+      - name: Run tests GUI
+        run: make testgui
