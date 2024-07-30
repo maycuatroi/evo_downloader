@@ -45,7 +45,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install GUI
-        run: sudo apt-get update && sudo apt install ibgl1-mesa-dev
+        run: sudo apt-get update && sudo apt install libgl1-mesa-dev
       - name: Install project
         run: make install
       - name: Run tests
